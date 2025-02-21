@@ -37,12 +37,6 @@
                         {{ if .email }}
                         <p><strong>Email:</strong> <a href="mailto:{{ .email }}">{{ .email }}</a></p>
                         {{ end }}
-                        <ul>
-                            {{ $teamMember := . }}
-                            {{ range seq 1 .number_educ }}
-                            <li>{{ index $teamMember (print "education" .) | safeHTML }}</li>
-                            {{ end }}
-                        </ul>
                     </div>
                 </div>
                 {{ end }}
