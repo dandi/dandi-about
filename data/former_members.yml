@@ -1,26 +1,14 @@
 - name: Horea-Ioan Ioanas
-  info: Research Associate at PBS, Dartmouth College
-  email: chr@chymera.eu
-  number_educ: 4
-  education1: PhD in Neuroscience and Biomedical Engineering, ETH Zurich (CH)
-  education2: MSc in Molecular Biosciences and Neuroscience, Heidelberg University (DE)
-  education3: BSc in Molecular and Cellular Biology, Heidelberg University (DE)
-  education4: <a href="https://resources.chymera.eu/docs/cv-acad-m.pdf">CV</a>
+  info: Former Research Associate at Dartmouth College
 
 - name: Cody Baker
-  info: Head of NWB Conversions at <a href="http://www.catalystneuro.com">CatalystNeuro</a>
-  email: cody.baker@catalystneuro.com
-  number_educ: 1
-  education1: PhD in Applied and Computational Mathematics and Statistics from the University of Notre Dame
+  info: Former Head of NWB Conversions at CatalystNeuro
 
 - name: Daniel Chiquito
+  info: Former Senior R&D Engineer at Kitware
 
 - name: Michael Grauer
+  info: Former Technical Leader at Kitware
 
 - name: Bhavya Kandimalla
-  info: Intern, working on the DANDI project at MIT
-  email: bkandimalla.wpi@gmail.com
-  number_educ: 3
-  education1: BS Biology and Biotechnology, Worcester Polytechnic Institute
-  education2: MS Candidate Bioinformatics, Johns Hopkins University
-  education3: <a href="https://www.linkedin.com/in/bhavya-kandimalla-a02248100">Full CV</a>
+  info: Former Intern at MIT
