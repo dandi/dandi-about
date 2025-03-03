@@ -1,12 +1,13 @@
 [build]
   publish = "public"
-  command = "git submodule update --init --recursive && npm install && hugo --gc --minify"
+  command = "git submodule update --init --recursive && ([ -f package-lock.json ] || [ -f npm-shrinkwrap.json ] && npm ci || true) && npm install postcss postcss-cli autoprefixer && hugo --gc --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.139.4"
+  HUGO_VERSION = "0.137.1"
+  TZ = "America/Los_Angeles"
 
 [context.deploy-preview]
-  command = "git submodule update --init --recursive && npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
+  command = "git submodule update --init --recursive && ([ -f package-lock.json ] || [ -f npm-shrinkwrap.json ] && npm ci || true) && npm install postcss postcss-cli autoprefixer && hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy]
-  command = "git submodule update --init --recursive && npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
+  command = "git submodule update --init --recursive && ([ -f package-lock.json ] || [ -f npm-shrinkwrap.json ] && npm ci || true) && npm install postcss postcss-cli autoprefixer && hugo --gc --minify -b $DEPLOY_PRIME_URL"
