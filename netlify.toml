@@ -1,12 +1,12 @@
 [build]
   publish = "public"
-  command = "npm install && hugo --gc --minify"
+  command = "git submodule update --init --recursive && hugo --gc --minify"
 
 [build.environment]
-  HUGO_VERSION = "0.92.0"  # Consider updating to 0.139.4 as mentioned in your README
+  HUGO_VERSION = "0.139.4"  # Updated to match your README
 
 [context.deploy-preview]
-  command = "npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
+  command = "git submodule update --init --recursive && hugo --gc --minify -b $DEPLOY_PRIME_URL"
 
 [context.branch-deploy]
-  command = "npm install && hugo --gc --minify -b $DEPLOY_PRIME_URL"
+  command = "git submodule update --init --recursive && hugo --gc --minify -b $DEPLOY_PRIME_URL"
