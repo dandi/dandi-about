@@ -51,7 +51,7 @@ algorithm we tested that can be read substantially faster than zstd (1.25x). If 
 offer a good trade-off between size and speed. Note that the default gzip performs substantially worse in read time 
 (about 1.8x zstd), but at moderate levels (e.g. the default 4) has about the same performance in file size and write 
 time, making it an adequate alternative for users unable to configure custom dynamic filters or anticipating that the 
-readers of their data may not be able to do so.
+readers of their data may not be able to do so. blos zstd gets a slightly better compression ratio than zstd (without blosc), resulting in smaller files, but blos zstd takes much longer to write the data, particularly at higher compression levels.
 
 ## Discussion
 
