@@ -44,7 +44,7 @@ algorithm and the lightness/darness of the color indicates compression level.
 
 Of the filters we tested, zstd shows the best overall results. zstd is about tied with
 gzip and blosz zlib for the best data compression ratio (about 45%). At low to moderate levels of compression, zstd 
-is also close to optimal for read and write speed. For higher levels, zstd write speed increases dramatically without 
+is also close to the best for read and write speed. For higher levels, zstd write speed increases dramatically without 
 much additional space savings, so our recommendations for best all-around performance would be zstd level 4. zstd is 
 faster than naive binary read, but if you are optimizing for read speed above all else, blosc lz4 is the only 
 algorithm we tested that can be read substantially faster than zstd (1.25x). If using blosz lz4, level 4 appears to 
