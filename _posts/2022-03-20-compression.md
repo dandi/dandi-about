@@ -7,7 +7,7 @@ convenient to download. HDF5 has the ability to apply chunking and compression t
 into smaller chunks and applies lossless compression to each chunk. This approach reduces the volume of the HDF5 
 file without changing the values of the dataset, and in some cases can even improve read or write speeds above naive
 uncompressed binary data. HDF5 ships with the compression algorithms GZIP and LZ4, and can support additional
-dynamically loaded filters. DANDI has requested that large datasets be compressed, as it reduces the main These 
+dynamically loaded filters. DANDI has requested that large datasets be compressed. These 
 different algorithms and settings present myriad potential configurations, and a number of questions for NWB users 
 unfamiliar with this type of data engineering:
 
