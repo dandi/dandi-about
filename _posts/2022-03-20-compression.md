@@ -53,16 +53,8 @@ offer a good trade-off between size and speed. Note that the default gzip perfor
 time, making it an adequate alternative for users unable to configure custom dynamic filters or anticipating that the 
 readers of their data may not be able to do so. blos zstd gets a slightly better compression ratio than zstd (without blosc), resulting in smaller files, but blos zstd takes much longer to write the data, particularly at higher compression levels.
 
-## Discussion
-
 There are a variety of compression options supported by HDF5. zstd level 4 will probably be the best for most NWB 
 users, there is no one option that is best in every category and every option comes with trade-offs.
-
-### MATLAB users
-MATLAB has officially supported reading HDF5 datasets with dynamically loaded filters since 2015a, however this 
-requires some custom configuration and we have not yet found a convenient way to do this. We have heard that MATLAB 
-2022a will be the first release to support _writing_ HDF5 Datasets with dynamically loaded filters. More tutorials 
-to come once we figure that out.
 
 ## Code
 
