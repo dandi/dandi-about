@@ -31,7 +31,7 @@ We ran a scan over several popular compression algorithms using the
 [h5plugin](http://www.silx.org/doc/hdf5plugin/latest/) library, which automatically compiles 
 and installs several algorithms and makes them available to [h5py](https://docs.h5py.org/en/stable/index.html). If using
 Python, we highly recommend using this package, as it vastly simplifies the installation process for a good variety of
-popular compression algorithms.For test data, we are using ap data from a Neuropixel probe recorded using the SpikeGLX
+popular compression algorithms. For test data, we are using ap data from a Neuropixel probe recorded using the SpikeGLX
 acquisition system from [dandiset 000053](https://dandiarchive.org/dandiset/000053/0.210819.0345), which is high-pass
 voltage data prior to spike-sorting. We expect this to be a common use-case for NWB. Here, we are relying on h5py to
 automatically determine chunk shape, and shuffle is off.
