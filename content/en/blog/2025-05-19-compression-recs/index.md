@@ -1,10 +1,10 @@
 ---
-title: Assessing NWB Compression Options for DANDI Archive - HDF5 and Zarr
-author: The DANDI Team
+title: NWB Compression Recommendations for DANDI Archive
+author: Ben Dichter
 description: >
     An analysis of HDF5 and Zarr compression options for NWB files submitted to the DANDI Archive, providing recommendations based on file size, read speed, and write speed.
 tags: [ "nwb", "compression", "hdf5", "zarr", "dandi", "best-practices" ]
-date: 2025-04-28
+date: 2025-05-19
 ---
 
 When submitting large datasets to the DANDI Archive, it's crucial to consider data compression options that can substantially reduce file sizes. Smaller files reduce the storage burden on the DANDI Archive and make datasets more convenient to download for users. Neurodata Without Borders (NWB) now supports two file format backends: HDF5 and Zarr. Both formats have built-in capabilities for chunking and compression that can break large datasets into smaller pieces and apply lossless compression to each chunk. This approach reduces file size without altering the dataset values, and in some cases can even improve read or write speeds compared to uncompressed binary data.
@@ -15,11 +15,11 @@ DANDI recommends compressing large datasets, but the variety of algorithms and s
 - What compression options are available and how can I access them?
 - Which compression algorithms and settings are optimal for my use case?
 
-The answers depend on specific use cases, but our analysis provides general guidelines to help you make informed decisions based on three key metrics: file size, read speed, and write speed. You may also need to consider accessibility - whether the HDF5 library can read your file out of the box or requires installation of a dynamic filter.
+The answers depend on specific use cases, but our analysis provides general guidelines to help you make informed decisions based on three key metrics: file size, read speed, and write speed. You may also need to consider accessibility - whether the HDF5 or Zarr library can read your file out of the box or requires installation of a dynamic filter.
 
 ## Our Testing Approach
 
-We conducted a comprehensive evaluation of several popular compression algorithms using the [h5plugin](http://www.silx.org/doc/hdf5plugin/latest/) library, which simplifies the installation process for various compression algorithms and makes them available to [h5py](https://docs.h5py.org/en/stable/index.html). For Python users, we highly recommend this package.
+We conducted a comprehensive evaluation of several popular compression algorithms in HDF5 using the [h5plugin](http://www.silx.org/doc/hdf5plugin/latest/) library, which simplifies the installation process for various compression algorithms and makes them available to [h5py](https://docs.h5py.org/en/stable/index.html). For Python users, we highly recommend this package.
 
 For our test data, we used action potential recordings from a Neuropixel probe (SpikeGLX acquisition system) from [DANDI:000053](https://dandiarchive.org/dandiset/000053/0.210819.0345), consisting of high-pass voltage data prior to spike-sorting. This represents a common use case for NWB files. While this analysis focuses on HDF5, similar compression principles apply to Zarr backends as well. We relied on h5py to automatically determine chunk shapes, with shuffle turned off.
 
@@ -40,23 +40,23 @@ For our test data, we used action potential recordings from a Neuropixel probe (
     - For blosc lz4, level 4 offers a good balance between size and speed
 
 3.  **Alternative Option: gzip**
-    - Built into HDF5 (no additional configuration needed)
+    - Most accessible because it is built into HDF5 (no additional configuration needed)
     - Read time is about 1.8x slower than zstd
     - At moderate levels (e.g., the default level 4), offers similar file size and write time to zstd
     - Good option for users unable to configure custom dynamic filters
 
 4.  **Best Compression Ratio: blosc zstd**
-    - Achieves slightly better compression than standard zstd
-    - Results in smaller files
-    - Significantly longer write times, especially at higher compression levels
+    - Achieves slightly better compression ratio and slightly worse read time than standard zstd
+    - Significantly longer write times at higher compression levels
 
 ## Conclusion
 
 By applying appropriate compression settings to your NWB files before uploading to DANDI, you can significantly reduce storage requirements and improve download experiences for users of your datasets. For most neurophysiology datasets using the HDF5 backend, we recommend zstd level 4 as a good default that balances compression ratio with performance. However, if you have specific requirements for read speed or file size, you might consider blosc lz4 or blosc zstd respectively.
 
-While this analysis focused on HDF5, Zarr (the other supported NWB backend) offers similar compression options and benefits. Zarr natively supports blosc, zstd, and gzip compression algorithms with comparable performance characteristics.
+While this analysis focused on HDF5, Zarr offers similar compression options and benefits. Zarr natively supports blosc, zstd, and gzip compression algorithms with comparable performance characteristics. This is an active area of research, and there are newer algorithms that are designed specifically for electrophysiology and available in Zarr. See [Compression strategies for large-scale electrophysiology data](https://iopscience.iop.org/article/10.1088/1741-2552/acf5a4) for a detailed discussion of these algorithms.
 
-Remember that optimal compression settings may vary depending on your specific data characteristics and usage patterns. We encourage you to experiment with different options using the provided code examples to find the best configuration for your datasets.
+Remember that optimal compression settings may vary depending on your specific data characteristics and usage patterns. We encourage you to experiment with different options using the provided code example to find the best configuration for your datasets.
+
 
 ## Code
 
