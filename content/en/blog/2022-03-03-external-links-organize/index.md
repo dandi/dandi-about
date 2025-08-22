@@ -64,11 +64,11 @@ image_series.external_files=
 
 ## Code Walkthrough
 
-- __Register__ dataset on DANDI (staging)
+- __Register__ dataset on DANDI (sandbox)
 
 ```
 cd dandi_organized
-dandi download "https://gui-staging.dandiarchive.org/#/dandiset/101391/draft"
+dandi download "https://sandbox.dandiarchive.org/#/dandiset/101391/draft"
 ```
 
 - __Organize__
@@ -97,10 +97,10 @@ dandi validate
 - __Upload__
 
 ```
-dandi upload -i dandi-staging "/dandi_organized"
+dandi upload -i dandi-sandbox "/dandi_organized"
 ```
 
-Example dandiset [here](https://gui-staging.dandiarchive.org/#/dandiset/100953/draft/files?location=)
+Example dandiset [here](https://sandbox.dandiarchive.org/#/dandiset/100953/draft/files?location=)
 
 - __download__
 
@@ -108,6 +108,6 @@ This dataset can then be downloaded using:
 ```
 mkdir dandi_download
 cd dandi_download
-dandi download "https://gui-staging.dandiarchive.org/#/dandiset/101391/draft"
+dandi download "https://sandbox.dandiarchive.org/#/dandiset/101391/draft"
 ```
 The folder will contain all the video files along with the dandi metadata .yml and .nwb files.
