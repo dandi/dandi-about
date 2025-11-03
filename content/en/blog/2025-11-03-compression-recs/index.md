@@ -4,7 +4,7 @@ author: Ben Dichter
 description: >
     An analysis of HDF5 and Zarr compression options for NWB files submitted to the DANDI Archive, providing recommendations based on file size, read speed, and write speed.
 tags: [ "nwb", "compression", "hdf5", "zarr", "dandi", "best-practices" ]
-date: 2025-05-19
+date: 2025-11-03
 ---
 
 When submitting large datasets to the DANDI Archive, it's crucial to consider data compression options that can substantially reduce file sizes. Smaller files reduce the storage burden on the DANDI Archive and make datasets more convenient to download for users. Neurodata Without Borders (NWB) now supports two file format backends: HDF5 and Zarr. Both formats have built-in capabilities for chunking and compression that can break large datasets into smaller pieces and apply lossless compression to each chunk. This approach reduces file size without altering the dataset values.
