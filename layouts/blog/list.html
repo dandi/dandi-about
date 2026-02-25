@@ -1,0 +1,43 @@
+{{ define "main" }}
+{{ if (and .Parent .Parent.IsHome) -}}
+  {{ $.Scratch.Set "blog-pages" (where .Site.RegularPages "Section" .Section) -}}
+{{ else -}}
+  {{$.Scratch.Set "blog-pages" .Pages -}}
+{{ end -}}
+
+<div class="td-blog-posts td-blog-posts--styled">
+  {{ if .Pages -}}
+    {{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006" ) -}}
+    {{ range $pag.PageGroups -}}
+    <div class="td-blog-year-header">{{ T "post_posts_in" }} {{ .Key }}</div>
+    <div class="td-blog-grid">
+      {{ range .Pages -}}
+      <article class="td-blog-card">
+        <a href="{{ .RelPermalink }}" class="td-blog-card__link">
+          <div class="td-blog-card__content">
+            <div class="td-blog-card__meta">
+              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+              {{ with .Params.author }}<span class="td-blog-card__author">{{ . }}</span>{{ end }}
+            </div>
+            <h3 class="td-blog-card__title">{{ .Title }}</h3>
+            <p class="td-blog-card__description">{{ .Plain | safeHTML | truncate 180 }}</p>
+            <div class="td-blog-card__tags">
+              {{ range .GetTerms "tags" -}}
+              <span class="td-blog-card__tag">{{ .LinkTitle }}</span>
+              {{ end -}}
+            </div>
+            <span class="td-blog-card__read-more">Read article &rarr;</span>
+          </div>
+        </a>
+      </article>
+      {{ end -}}
+    </div>
+    {{ end -}}
+  {{ end }}
+</div>
+<div class="td-blog-posts__pagination">
+  {{ if .Pages -}}
+    {{ template "_internal/pagination.html" . -}}
+  {{ end -}}
+</div>
+{{ end -}}
