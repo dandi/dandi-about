@@ -39,7 +39,7 @@ Interestingly, the first exposure to the Escher Staircase on Flight Day 4 produc
 
 ## Now Available on DANDI
 
-Over 25 years after these historic recordings, the data is now publicly available on DANDI as [Dandiset #001754](https://dandiarchive.org/dandiset/001754). The original source data is archived on the [NASA Open Science Data Repository (OSD-968)](https://osdr.nasa.gov/bio/repo/data/studies/OSD-968). The NWB dataset includes:
+Over 25 years after these historic recordings, the data is now publicly available on DANDI as [Dandiset #001754](https://dandiarchive.org/dandiset/001754). The original source data is archived on the [NASA Open Science Data Repository (OSD-968)](https://osdr.nasa.gov/bio/repo/data/studies/OSD-968), where it was curated by Rachel Gilbert, PhD, and Ryan T. Scott of the NASA data curation team. The NWB dataset includes:
 
 - **8 NWB files** across 3 rats, covering preflight and in-flight sessions (Flight Days 4 and 9)
 - **Spike-sorted unit data** from multi-tetrode recordings in hippocampal CA1
