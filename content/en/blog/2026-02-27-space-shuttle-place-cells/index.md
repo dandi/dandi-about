@@ -7,6 +7,10 @@ tags: [ dataset-highlight, pynapple, NASA ]
 date: 2026-02-27
 ---
 
+![Rats navigating in microgravity aboard the Space Shuttle](./space-shuttle-rats.gif)
+
+_Source: [NASA Neurolab mission footage](https://youtu.be/2vyJOrlTeEU?si=3aSg7wskDaDDC07s&t=510)_
+
 ## Navigating Without Gravity
 
 How does the brain know where you are? In mammals, hippocampal "place cells" fire at specific locations, forming an internal map of the environment. These cells rely on a combination of visual landmarks and self-motion cues, including signals from the vestibular system that sense gravity and head orientation, to maintain a stable spatial code.
