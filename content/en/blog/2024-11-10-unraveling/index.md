@@ -1,6 +1,6 @@
 ---
 title: Unraveling Anesthesia's Effect on Brain Activity
-author: Paul Adkisson ([@pauladkisson](https://github.com/pauladkisson))
+author: Paul Adkisson
 description: >
     Have you ever wondered what happens to your brain when you're under anesthesia? What neural changes coincide with that dramatic loss of consciousness? In this post, we'll explore how two different research teams investigated this fascinating question using the same data from DANDI Archive's [Dandiset #000458](https://dandiarchive.org/dandiset/000458).
 tags: [ reuse-showcase ]

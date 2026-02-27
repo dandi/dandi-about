@@ -1,0 +1,25 @@
+<div class="td-content td-blog-single">
+	<article class="td-blog-article">
+		<header class="td-blog-article__header">
+			<div class="td-blog-article__meta">
+				<time datetime="{{ $.Date.Format "2006-01-02" }}">{{ $.Date.Format "January 2, 2006" }}</time>
+				{{ with .Params.author }}
+				<span class="td-blog-article__author">{{ . | markdownify }}</span>
+				{{ end }}
+			</div>
+			<h1 class="td-blog-article__title">{{ .Title }}</h1>
+			{{ with .Params.description }}<p class="td-blog-article__lead">{{ . | markdownify }}</p>{{ end }}
+			<div class="td-blog-article__tags">
+				{{ range .GetTerms "tags" -}}
+				<a href="{{ .RelPermalink }}" class="td-blog-article__tag">{{ .LinkTitle }}</a>
+				{{ end -}}
+			</div>
+		</header>
+		<div class="td-blog-article__body">
+			{{ .Content }}
+		</div>
+	</article>
+
+	{{ partial "pager.html" . }}
+	{{ partial "page-meta-lastmod.html" . -}}
+</div>
