@@ -9,7 +9,7 @@ date: 2026-03-17
 
 One of the most rewarding things about sharing data on DANDI is seeing other researchers use it to ask new questions. But with over 500 dandisets now available on the archive, a lot of that data is still waiting for someone to dig in. What if there were a structured way to connect your published data with motivated students who want to analyze it?
 
-That's exactly what [Neuromatch](https://neuromatch.io/)'s **Impact Scholars Program** offers. Through a partnership model, DANDI data submitters can propose projects based on their own datasets and get matched with a team of students to carry out the analysis, with the submitter serving as supervisor.
+That's exactly what [Neuromatch](https://neuromatch.io/)'s [**Impact Scholars Program**](https://neuromatch.io/impact-scholars-program/) offers. Through a partnership model, DANDI data submitters can propose projects based on their own datasets and get matched with a team of students to carry out the analysis, with the submitter serving as supervisor.
 
 ## What is the Impact Scholars Program?
 
