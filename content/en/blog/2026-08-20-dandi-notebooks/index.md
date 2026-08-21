@@ -114,7 +114,7 @@ interactive windows, cannot be verified unattended and therefore cannot carry an
 Notebooks for embargoed dandisets wait until the data are public. And some of the older
 notebooks in the collection cannot be packaged this way at all: a few depend on a
 database server that has to be set up separately (thus violating Self-Contained principle), on lab-internal packages that were
-never published, or on package versions that no longer install on a current Python.
+never published (and thus not Tracked), or on package versions that no longer install on a current Python (not really Portable).
 Those remain in the repository as a record of how the data were used, but they carry
 neither badge and are excluded from the automated testing. Within those limits, though,
 the guarantee is strong.
