@@ -7,6 +7,9 @@ description: >
     the notebook collection a platform for sharing analyses that stay executable.
 tags: [ dandi, nwb, notebooks, reproducibility, colab, docker ]
 date: 2026-08-20
+slug: dandi-notebooks
+aliases:
+  - /blog/2026/08/20/dandi-notebooks-persistent-executable-companions-to-neurophysiology-data/
 ---
 
 A dataset on DANDI is most useful when it comes with code that shows how to read it and
