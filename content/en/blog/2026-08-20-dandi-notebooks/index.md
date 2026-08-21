@@ -58,8 +58,9 @@ Silicon laptops as well as on Linux servers, and each image carries a date tag a
 An image is only pushed to the registry after the notebook has been executed successfully
 inside it, on both processor architectures, as an unprivileged user, under a memory
 limit typical of a laptop. An image that is on the registry is one whose notebook ran,
-start to finish, in precisely that environment. Unlike Colab, nothing about the
-environment can change afterward.
+start to finish, in precisely that environment. Unlike Colab, nothing inside the
+environment can change afterward, and there is a better chance it will remain
+usable many years later.
 
 The docker badge next to each notebook copies the command above to your clipboard, and
 a [help page](https://notebooks.dandiarchive.org/docker-help.html) explains the rest
