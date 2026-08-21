@@ -100,7 +100,7 @@ live under one boundary; tracked in that every image records the repository comm
 was built from and carries a dated tag; actionable in that a single command executes
 it; modular in that each notebook group is its own image over a shared base; portable
 in that the environment is pinned explicitly and built for both processor
-architectures; ephemeral in that each run starts from the same frozen state and
+architectures and could be ran across various OSes; ephemeral in that each run starts from the same frozen state and
 discards its container afterward; and distributable in that the images are published
 on a public registry under persistent, retrievable tags. The one deliberate departure
 from a fully self-contained artifact is the data, which stays on DANDI and is streamed
