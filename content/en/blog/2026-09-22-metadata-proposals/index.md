@@ -91,10 +91,8 @@ the rest.
 
 ## Owners Stay in Control
 
-The emails started going out today. By the end of the first day, owners of three
-dandisets had committed the suggested changes. One of them kept most of the proposal,
-used the editor's assistant to add further brain regions covered by the recordings, and
-published a new version of the dandiset with the improved metadata. Because the proposal only applies to the exact version of
+The emails started going out today, and a few owners have already committed some or
+all of the suggested changes. Because the proposal only applies to the exact version of
 the metadata it was built from, an owner can edit freely before or after, and a link that
 has gone stale simply stops working. An owner who disagrees with a change can discard it
 in the editor before committing, and we would like to hear about anything the assistant
