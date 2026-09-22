@@ -73,15 +73,15 @@ click commit. We read every draft before it is sent.
 
 ## What It Found
 
-The first 76 proposals added the following to the dandisets they cover:
+The 75 proposals emailed so far suggest the following additions to the dandisets they cover:
 
 | Change | Count |
 |---|---|
-| ORCIDs for existing contributors | 240 |
-| Contributor affiliations linked to ROR | 160 |
+| ORCIDs for existing contributors | 234 |
+| Contributor affiliations linked to ROR | 157 |
 | Funder entries with a ROR identifier | 141 |
 | Subject terms from UBERON, the Cell Ontology, the Allen Mouse Brain Atlas, disease ontologies, and the Cognitive Atlas | 135 |
-| Related publications and preprints | 80 |
+| Related publications and preprints | 77 |
 | Authors added from a linked paper, with ORCIDs | 32 |
 
 The most valuable single change is usually the paper. Once the assistant finds the
