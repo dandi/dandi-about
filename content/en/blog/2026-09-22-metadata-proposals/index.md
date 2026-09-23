@@ -73,16 +73,16 @@ click commit. We read every draft before it is sent.
 
 ## What It Found
 
-The 75 proposals emailed so far suggest the following additions to the dandisets they cover:
+The 88 proposals emailed so far suggest the following additions to the dandisets they cover:
 
 | Change | Count |
 |---|---|
-| ORCIDs for existing contributors | 234 |
-| Contributor affiliations linked to ROR | 157 |
-| Funder entries with a ROR identifier | 141 |
-| Subject terms from UBERON, the Cell Ontology, the Allen Mouse Brain Atlas, disease ontologies, and the Cognitive Atlas | 135 |
-| Related publications and preprints | 77 |
-| Authors added from a linked paper, with ORCIDs | 32 |
+| ORCIDs for existing contributors | 265 |
+| Contributor affiliations linked to ROR | 187 |
+| Funder entries with a ROR identifier | 171 |
+| Subject terms from UBERON, the Cell Ontology, the Allen Mouse Brain Atlas, disease ontologies, and the Cognitive Atlas | 151 |
+| Related publications and preprints | 86 |
+| Authors added from a linked paper, with ORCIDs | 37 |
 
 The most valuable single change is usually the paper. Once the assistant finds the
 publication a dandiset supports, OpenAlex returns the authors' ORCIDs and institutions and
