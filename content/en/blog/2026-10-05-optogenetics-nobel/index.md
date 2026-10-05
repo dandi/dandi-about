@@ -61,18 +61,18 @@ There is a lesson here about curiosity. Nobody studying pond algae in 1990 was t
 
 When a lab runs an optogenetics experiment, it records what the neurons and the animal did before, during and after each flash of light. Those recordings are the raw evidence behind the discoveries. More and more labs now share them openly on DANDI, so that anyone can check the results or ask new questions of the same data.
 
-A search for "optogenetic" on DANDI returns 68 datasets as of October 5, 2026. Here are six that show the range of questions this tool can answer.
+A search for "optogenetic" on DANDI returns 68 datasets as of October 5, 2026. Here are six that show the range of questions this tool can help answer.
 
 | Question | What the researchers did | Dataset |
 | --- | --- | --- |
-| How does the brain hold a plan in mind? | Mice had to wait a moment before licking left or right. Briefly silencing the motor cortex or the thalamus with light erased the plan, showing that the two regions keep it alive together. | [DANDI:000009](https://dandiarchive.org/dandiset/000009) (Svoboda lab, [paper](https://doi.org/10.1038/nature22324)) |
+| How does the brain hold a plan in mind? | Mice had to wait a moment before licking left or right. Briefly silencing the motor cortex or the thalamus on one side with light biased their choices. Silencing either region also shut down activity in the other, suggesting the two keep the plan alive together. | [DANDI:000009](https://dandiarchive.org/dandiset/000009) (Svoboda lab, [paper](https://doi.org/10.1038/nature22324)) |
 | What does dopamine do when no reward is on offer? | Light was used to nudge dopamine at precise moments while mice roamed freely. Small boosts made the mice more likely to repeat whatever they had just been doing. | [DANDI:000559](https://dandiarchive.org/dandiset/000559) (Datta lab, [paper](https://doi.org/10.1038/s41586-022-05611-2)) |
 | How does a habit become a compulsion? | Turning dopamine signals up in one part of the striatum sped the shift to compulsive reward seeking in mice. Turning them down delayed it. | [DANDI:000971](https://dandiarchive.org/dandiset/000971) (Lerner lab, [paper](https://doi.org/10.1016/j.cub.2022.01.055)) |
 | How do signals travel through a whole brain? | In a tiny worm, researchers lit up neurons one at a time and watched the rest of the brain respond. They measured 23,433 pairs of neurons and found signals that the wiring diagram alone did not predict. | [DANDI:001075](https://dandiarchive.org/dandiset/001075) (Leifer lab, [paper](https://doi.org/10.1038/s41586-023-06683-4)) |
-| How do neurons weigh their inputs? | Gentle light pulses were used to probe hippocampal neurons in freely moving mice, revealing hidden "place fields" in cells that had seemed silent. | [DANDI:000568](https://dandiarchive.org/dandiset/000568) (Buzsáki lab, [paper](https://doi.org/10.1126/science.abm1891)) |
-| Could light calm overactive human brain tissue? | Slices of human hippocampus, donated by patients having epilepsy surgery, were given light-sensitive proteins and recorded while light was used to change their activity. | [DANDI:001132](https://dandiarchive.org/dandiset/001132) ([paper](https://doi.org/10.1038/s41593-024-01782-5)) |
+| How do neurons weigh their inputs? | Gentle light pulses were used to probe hippocampal neurons in freely moving mice, revealing hidden "place fields" in cells that had not shown one. | [DANDI:000568](https://dandiarchive.org/dandiset/000568) (Buzsáki lab, [paper](https://doi.org/10.1126/science.abm1891)) |
+| Could light calm overactive human brain tissue? | Slices of human hippocampus, donated by patients having epilepsy surgery, were given light-sensitive proteins. Light then lowered the tissue's firing under conditions that provoke overactivity. | [DANDI:001132](https://dandiarchive.org/dandiset/001132) ([paper](https://doi.org/10.1038/s41593-024-01782-5)) |
 
-Several newer datasets apply the same tool to Parkinson's disease. One example is [DANDI:001538](https://dandiarchive.org/dandiset/001538), which studies the involuntary movements that can follow long-term levodopa treatment.
+Optogenetics also plays a supporting role in many studies. One example is [DANDI:001538](https://dandiarchive.org/dandiset/001538), a study in mice of the involuntary movements that can follow long-term levodopa treatment for Parkinson's disease. Some of its recordings use light to activate specific connections in brain slices.
 
 Notice the pattern across these studies. Each one goes beyond watching the brain. It changes something specific and measures what follows. That move from correlation to cause is what the Nobel Committee recognized.
 
