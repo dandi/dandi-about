@@ -1,5 +1,10 @@
 ---
 title: DANDI
+seo_title: "DANDI: Distributed Archives for Neurophysiology Data Integration"
+description: >-
+  DANDI is a BRAIN Initiative archive for publishing, sharing, and processing
+  cellular neurophysiology data, including electrophysiology, optophysiology,
+  and behavioral time series.
 ---
 
 {{< blocks/banner title="DANDI: Distributed Archives for Neurophysiology Data Integration" show_news="true" >}}

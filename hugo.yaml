@@ -21,7 +21,16 @@ enableGitInfo: true
 # You can add your own taxonomies
 taxonomies:
   tag: tags
-  category: categories
+
+# Show tags as written in front matter (nwb, not Nwb)
+capitalizeListTitles: false
+
+# Tag listings are noindex (see layouts/partials/head.html), so keep them out of the sitemap too.
+cascade:
+  - _target:
+      kind: '{taxonomy,term}'
+    sitemap:
+      disable: true
 
 # Highlighting config
 pygmentsCodeFences: true
@@ -48,7 +57,9 @@ languages:
     languageName: English
     title: DANDI
     params:
-      description: DANDI website
+      description: >-
+        DANDI is a BRAIN Initiative archive for publishing, sharing, and processing
+        cellular neurophysiology data.
     menu:
       main:
         - name: Data Portal
@@ -93,18 +104,22 @@ params:
   favicon: favicon.ico
   taxonomy:
     # set taxonomyCloud = [] to hide taxonomy clouds
-    taxonomyCloud: [tags, categories]
+    taxonomyCloud: [tags]
 
     # If used, must have same length as taxonomyCloud
-    taxonomyCloudTitle: [Tag Cloud, Categories]
+    taxonomyCloudTitle: [Tag Cloud]
 
     # set taxonomyPageHeader = [] to hide taxonomies on the page headers
-    taxonomyPageHeader: [tags, categories]
+    taxonomyPageHeader: [tags]
 
   # privacy_policy: https://policies.google.com/privacy
 
-  # First one is picked as the Twitter card image if not set on page.
-  # images: [images/project-illustration.png]
+  # Default link-preview image (Open Graph / Twitter card) for pages that do not
+  # set `images` in their front matter.
+  images: [images/dandi-social.png]
+
+  social:
+    twitter: dandiarchive
 
   # Menu title if your navbar has a versions selector to access old versions of your site.
   # This menu appears only if you have at least one [params.versions] set.

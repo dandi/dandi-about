@@ -1,0 +1,7 @@
+{{/* Returns the paginator for the blog index. Shared by the "canonical" and
+     "main" blocks in layouts/blog/list.html so both see the same pages. */ -}}
+{{ $pages := .Pages -}}
+{{ if (and .Parent .Parent.IsHome) -}}
+  {{ $pages = where .Site.RegularPages "Section" .Section -}}
+{{ end -}}
+{{ return (.Paginate $pages 12) -}}
