@@ -11,4 +11,4 @@ date: 2021-10-13
 
 ### Registration is closed
 
-<img src="./2021_DANDI_USER_Workshop.svg" width="75%" />
+<img src="./2021_DANDI_USER_Workshop.svg" alt="2021 DANDI User Workshop flyer" width="75%" />
