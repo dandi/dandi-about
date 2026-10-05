@@ -2,30 +2,72 @@
 Add styles or override variables from the theme here.
 */
 
-// Override primary color to match DANDI's branding
-$primary: #00A1D8;
-$secondary: #005B7F;
+// Colors follow the DANDI Archive web app (dandiarchive.org), which uses
+// Vuetify's Material palette: light-blue darken-1 as primary, blue-grey as
+// secondary, and neutral greys for text and surfaces.
+$primary: #039BE5;
+$secondary: #607D8B;
+
+// Light-blue darken-3. Use for text links: $primary on white is below WCAG AA.
+$dandi-primary-dark: #0277BD;
+// Light-blue lighten-1. Use for links on dark backgrounds.
+$dandi-primary-light: #29B6F6;
+// The navy of the DANDI wordmark
+$dandi-navy: #00436D;
+// The pinks of the brain in the DANDI logo. Accents only: a short bar under
+// page titles, the "Latest" badge and blockquotes.
+$dandi-pink: #EFA4AB;
+$dandi-rose: #A05A60;
+
+// Short pink bar sitting on an element's bottom border
+@mixin dandi-accent-bar {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 3rem;
+        height: 3px;
+        border-radius: 2px;
+        background: $dandi-pink;
+    }
+}
+
+$dandi-ink: #212121;
+$dandi-ink-soft: #424242;
+$dandi-muted: #616161;
+$dandi-divider: #E0E0E0;
+$dandi-surface: #FAFAFA;
 
 // Navbar and footer colors
-$navbar-bg: #f5f5f5;
-$navbar-color: #414141;
-$footer-bg: #f5f5f5;
-$footer-color: #414141;
+$navbar-bg: #fff;
+$navbar-color: $dandi-ink;
+$footer-bg: #fff;
+$footer-color: $dandi-ink-soft;
 
 // Override navbar styles
 .td-navbar {
     background: $navbar-bg !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px rgba(0, 0, 0, 0.08) !important;
 
     .navbar-brand {
-        color: #00436D !important;
+        color: $dandi-navy !important;
     }
 
     .nav-link {
         color: $navbar-color !important;
+        transition: color 0.15s ease, box-shadow 0.15s ease;
 
-        &:hover {
+        &:hover,
+        &.active {
             color: $primary !important;
+        }
+
+        // Underline the current section, like the archive's tabs
+        &.active {
+            box-shadow: inset 0 -2px 0 $primary;
         }
     }
 
@@ -38,8 +80,8 @@ $footer-color: #414141;
 // Override footer styles
 .td-footer {
     background: $footer-bg !important;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1) !important;
-    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: none !important;
+    border-top: 1px solid $dandi-divider !important;
 
     * {
         color: $footer-color !important;
@@ -59,7 +101,7 @@ $footer-color: #414141;
 
 // Banner styles
 .home-banner {
-    background-color: #4C4C4C;
+    background-color: $dandi-ink-soft;
     min-height: 40vh;
     width: 100vw;
     color: #fff;
@@ -83,6 +125,7 @@ $footer-color: #414141;
         line-height: 1.2;
         padding-bottom: 1rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        @include dandi-accent-bar;
     }
 
     .banner-text {
@@ -94,12 +137,12 @@ $footer-color: #414141;
         }
 
         a {
-            color: $primary;
+            color: $dandi-primary-light;
             text-decoration: none;
             transition: color 0.3s ease;
 
             &:hover {
-                color: lighten($primary, 10%);
+                color: lighten($dandi-primary-light, 10%);
                 text-decoration: underline;
             }
         }
@@ -122,7 +165,7 @@ $footer-color: #414141;
             margin-bottom: 1.5rem;
 
             .date {
-                color: $primary;
+                color: $dandi-primary-light;
                 font-weight: 500;
                 margin-bottom: 0.25rem;
             }
@@ -142,7 +185,7 @@ $footer-color: #414141;
                 text-decoration: none;
 
                 &:hover {
-                    color: $primary;
+                    color: $dandi-primary-light;
                 }
             }
         }
@@ -156,7 +199,7 @@ $footer-color: #414141;
             }
 
             a {
-                color: $primary;
+                color: $dandi-primary-light;
                 text-decoration: none;
                 font-weight: 500;
 
@@ -185,13 +228,13 @@ $footer-color: #414141;
         font-weight: 300;
         margin-bottom: 2.5rem;
         text-align: center;
-        color: #333;
+        color: $dandi-ink;
     }
 
     p {
         font-size: 1.1rem;
         line-height: 1.6;
-        color: #555;
+        color: $dandi-ink-soft;
         margin-bottom: 1.5rem;
     }
 
@@ -205,7 +248,7 @@ $footer-color: #414141;
             counter-increment: item;
             font-size: 1.1rem;
             line-height: 1.6;
-            color: #555;
+            color: $dandi-ink-soft;
             position: relative;
             padding-left: 2.5rem;
             margin-bottom: 1.5rem;
@@ -230,12 +273,12 @@ $footer-color: #414141;
     }
 
     a {
-        color: $primary;
+        color: $dandi-primary-dark;
         text-decoration: none;
         transition: color 0.3s ease;
 
         &:hover {
-            color: darken($primary, 10%);
+            color: darken($dandi-primary-dark, 10%);
             text-decoration: underline;
         }
     }
@@ -243,7 +286,7 @@ $footer-color: #414141;
 
 // Footer section styles
 .footer-section {
-    background: #2a2a2a;
+    background: $dandi-ink;
     color: rgba(255, 255, 255, 0.7);
     padding: 4rem 0;
     position: relative;
@@ -285,7 +328,7 @@ $footer-color: #414141;
         transition: color 0.3s ease;
 
         &:hover {
-            color: $primary;
+            color: $dandi-primary-light;
             text-decoration: none;
         }
     }
@@ -328,12 +371,11 @@ $footer-color: #414141;
 // Blog styles
 // ============================================================
 
-$blog-ink: #1f2933;
-$blog-heading: #00436D;
-$blog-muted: #5f6b76;
-$blog-rule: rgba(0, 67, 109, 0.12);
-// Darker than $primary so body links meet WCAG AA contrast on white
-$blog-link: #0077A3;
+$blog-ink: $dandi-ink;
+$blog-heading: $dandi-ink;
+$blog-muted: $dandi-muted;
+$blog-rule: $dandi-divider;
+$blog-link: $dandi-primary-dark;
 
 .blog-main {
     padding-top: 5.5rem;
@@ -357,7 +399,7 @@ $blog-link: #0077A3;
     > * + *::before {
         content: "\00B7";
         margin-right: 0.6rem;
-        color: #a9b4bd;
+        color: #BDBDBD;
     }
 }
 
@@ -378,7 +420,7 @@ $blog-link: #0077A3;
     padding: 0.25rem 0.6rem;
     border-radius: 999px;
     border: 1px solid $blog-rule;
-    color: $secondary;
+    color: $dandi-ink-soft;
     background: #fff;
     text-decoration: none;
     transition: background 0.15s ease, border-color 0.15s ease;
@@ -387,7 +429,7 @@ $blog-link: #0077A3;
     &:focus-visible {
         background: rgba($primary, 0.1);
         border-color: rgba($primary, 0.4);
-        color: $blog-heading;
+        color: $blog-link;
         text-decoration: none;
     }
 }
@@ -406,6 +448,7 @@ $blog-link: #0077A3;
     gap: 0.75rem 1.5rem;
     padding: 1.5rem 0 1.75rem;
     border-bottom: 1px solid $blog-rule;
+    @include dandi-accent-bar;
 
     h1 {
         font-size: 2.5rem;
@@ -498,7 +541,7 @@ $blog-link: #0077A3;
     &__excerpt {
         font-size: 1rem;
         line-height: 1.65;
-        color: #45525e;
+        color: $dandi-ink-soft;
         margin: 0 0 0.9rem;
     }
 
@@ -555,8 +598,8 @@ $blog-link: #0077A3;
         letter-spacing: 0.08em;
         padding: 0.2rem 0.55rem;
         border-radius: 3px;
-        background: $blog-heading;
-        color: #fff;
+        background: mix($dandi-pink, #fff, 35%);
+        color: darken($dandi-rose, 12%);
     }
 }
 
@@ -571,15 +614,15 @@ $blog-link: #0077A3;
     .page-link {
         border-radius: 4px;
         border: 1px solid $blog-rule;
-        color: $secondary;
+        color: $blog-link;
         font-size: 0.85rem;
         font-weight: 500;
         padding: 0.4rem 0.75rem;
     }
 
     .active .page-link {
-        background: $blog-heading;
-        border-color: $blog-heading;
+        background: $blog-link;
+        border-color: $blog-link;
         color: #fff;
     }
 }
@@ -621,6 +664,7 @@ $blog-link: #0077A3;
     margin-bottom: 2.25rem;
     padding-bottom: 1.75rem;
     border-bottom: 1px solid $blog-rule;
+    @include dandi-accent-bar;
 
     h1 {
         font-size: 2rem;
@@ -648,7 +692,7 @@ $blog-link: #0077A3;
 .blog-post__lead {
     font-size: 1.2rem;
     line-height: 1.6;
-    color: #45525e;
+    color: $dandi-ink-soft;
     margin: 0 0 1.25rem;
 
     a {
@@ -724,10 +768,10 @@ $blog-link: #0077A3;
     }
 
     blockquote {
-        border-left: 3px solid $primary;
+        border-left: 3px solid $dandi-pink;
         padding: 0.25rem 0 0.25rem 1.25rem;
         margin: 1.75rem 0;
-        color: #45525e;
+        color: $dandi-ink-soft;
 
         p:last-child {
             margin-bottom: 0;
@@ -738,7 +782,7 @@ $blog-link: #0077A3;
         font-size: 0.875em;
         padding: 0.15em 0.4em;
         border-radius: 4px;
-        background: #eef3f6;
+        background: #F5F5F5;
         color: $blog-heading;
         word-break: break-word;
     }
@@ -797,7 +841,7 @@ $blog-link: #0077A3;
             letter-spacing: 0.05em;
             color: $blog-muted;
             background: none;
-            border-bottom: 2px solid rgba(0, 67, 109, 0.25);
+            border-bottom: 2px solid #9E9E9E;
             white-space: nowrap;
         }
 
