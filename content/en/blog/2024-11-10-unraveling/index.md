@@ -5,6 +5,7 @@ description: >
     Have you ever wondered what happens to your brain when you're under anesthesia? What neural changes coincide with that dramatic loss of consciousness? In this post, we'll explore how two different research teams investigated this fascinating question using the same data from DANDI Archive's [Dandiset #000458](https://dandiarchive.org/dandiset/000458).
 tags: [ reuse-showcase ]
 date: 2024-11-10
+images: [ data_reuse_000458_elife-fig7.jpg ]
 ---
 
 {{< alert title="Data Reuse Highlight:" >}}This blog entry is part of an ongoing series that showcases examples of data reuse and reanalysis using publicly available data on DANDI.{{< /alert >}}
@@ -26,7 +27,7 @@ This rebound excitation, in turn, drives the second component of the ERP – a c
 
 After their experiments, Claar and her team published their data on DANDI, ensuring that it would remain publicly accessible for any future researchers who wanted to use it. The dataset and manuscript were prepared and published concurrently, which ensured that the dataset included all the paper-relevant data and metadata and curious reviewers could inspect the data directly if they so wished.
 
-![Figure1](./data_reuse_000458_elife-fig7.jpg)
+![Evoked EEG responses and thalamic and cortical firing in awake and isoflurane-anesthetized mice](./data_reuse_000458_elife-fig7.jpg)
 
 _**Figure 1: Brain state modulates the ERP via cortico-thalamo-cortical interactions.**
 (A) Butterfly plot of ERPs during non-running (quiet wakefulness), running (active wakefulness), and isoflurane-anesthetized states.
@@ -54,7 +55,7 @@ By reanalyzing this data and manipulating a computational network model, they fo
 Conversely, setting it to the hyperpolarizing regime (-80mV) mimicked the responses seen in anesthetized mice (Figure 2 B&F right).
 This data provides evidence for the hypothesized bidirectional relationship.
 
-![Figure2](./data_reuse_000458_cell-fig4.jpg)
+![Neuropixels recordings and dynamic clamp experiments comparing cortical neurons in awake and anesthetized states](./data_reuse_000458_cell-fig4.jpg)
 
 _**Figure 2: Shunting inhibition promotes local network desynchronization and response flexibility.**
 (A) High-density Neuropixels (NPXs) recordings were used to compare spiking activity in the same cortical neurons under awake and anesthetized conditions.

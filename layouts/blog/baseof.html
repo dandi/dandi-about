@@ -5,6 +5,7 @@
     class="no-js">
   <head>
     {{ partial "head.html" . }}
+    {{ block "canonical" . }}{{ end }}
   </head>
   <body class="td-{{ .Kind }} td-blog {{- with .Page.Params.body_class }} {{ . }}{{ end }}">
     <header>

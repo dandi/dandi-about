@@ -5,6 +5,7 @@ description: >
     In 1998, three rats flew aboard the Space Shuttle as part of the Neurolab mission, carrying tiny electrode arrays in their brains. The goal: to find out whether the hippocampus, the brain's internal GPS, can build a map of space when there is no gravity. Over 25 years later, these historic recordings are now publicly available on DANDI as [Dandiset #001754](https://dandiarchive.org/dandiset/001754).
 tags: [ dataset-highlight, pynapple, NASA ]
 date: 2026-02-27
+images: [ reproduce_nasa_results.png ]
 ---
 
 ## Navigating Without Gravity

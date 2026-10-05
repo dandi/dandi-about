@@ -1,7 +1,7 @@
 {{ $_hugo_config := `{ "version": 1 }` }}
 <div class="main-content">
     <div class="container">
-        {{ with .Get "title" }}<h1>{{ . }}</h1>{{ end }}
+        {{ with .Get "title" }}<h2>{{ . }}</h2>{{ end }}
         <div class="content">
             {{ .Inner | markdownify }}
         </div>

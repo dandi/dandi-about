@@ -1,9 +1,14 @@
-{{ define "main" }}
-{{ $pages := .Pages -}}
-{{ if (and .Parent .Parent.IsHome) -}}
-  {{ $pages = where .Site.RegularPages "Section" .Section -}}
+{{ define "canonical" }}
+{{ if hugo.IsProduction -}}
+{{ $pag := partial "blog/paginator.html" . -}}
+<link rel="canonical" href="{{ $pag.URL | absURL }}">
+{{ if $pag.HasPrev }}<link rel="prev" href="{{ $pag.Prev.URL | absURL }}">{{ end }}
+{{ if $pag.HasNext }}<link rel="next" href="{{ $pag.Next.URL | absURL }}">{{ end }}
 {{ end -}}
-{{ $pag := .Paginate $pages 12 -}}
+{{ end -}}
+
+{{ define "main" }}
+{{ $pag := partial "blog/paginator.html" . -}}
 
 <div class="blog-index">
   <header class="blog-index__header">
