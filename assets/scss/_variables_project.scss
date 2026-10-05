@@ -14,6 +14,26 @@ $dandi-primary-dark: #0277BD;
 $dandi-primary-light: #29B6F6;
 // The navy of the DANDI wordmark
 $dandi-navy: #00436D;
+// The pinks of the brain in the DANDI logo. Accents only: a short bar under
+// page titles, the "Latest" badge and blockquotes.
+$dandi-pink: #EFA4AB;
+$dandi-rose: #A05A60;
+
+// Short pink bar sitting on an element's bottom border
+@mixin dandi-accent-bar {
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 3rem;
+        height: 3px;
+        border-radius: 2px;
+        background: $dandi-pink;
+    }
+}
 
 $dandi-ink: #212121;
 $dandi-ink-soft: #424242;
@@ -105,6 +125,7 @@ $footer-color: $dandi-ink-soft;
         line-height: 1.2;
         padding-bottom: 1rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        @include dandi-accent-bar;
     }
 
     .banner-text {
@@ -427,6 +448,7 @@ $blog-link: $dandi-primary-dark;
     gap: 0.75rem 1.5rem;
     padding: 1.5rem 0 1.75rem;
     border-bottom: 1px solid $blog-rule;
+    @include dandi-accent-bar;
 
     h1 {
         font-size: 2.5rem;
@@ -576,8 +598,8 @@ $blog-link: $dandi-primary-dark;
         letter-spacing: 0.08em;
         padding: 0.2rem 0.55rem;
         border-radius: 3px;
-        background: $blog-link;
-        color: #fff;
+        background: mix($dandi-pink, #fff, 35%);
+        color: darken($dandi-rose, 12%);
     }
 }
 
@@ -642,6 +664,7 @@ $blog-link: $dandi-primary-dark;
     margin-bottom: 2.25rem;
     padding-bottom: 1.75rem;
     border-bottom: 1px solid $blog-rule;
+    @include dandi-accent-bar;
 
     h1 {
         font-size: 2rem;
@@ -745,7 +768,7 @@ $blog-link: $dandi-primary-dark;
     }
 
     blockquote {
-        border-left: 3px solid $primary;
+        border-left: 3px solid $dandi-pink;
         padding: 0.25rem 0 0.25rem 1.25rem;
         margin: 1.75rem 0;
         color: $dandi-ink-soft;
