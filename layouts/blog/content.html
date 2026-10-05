@@ -1,25 +1,46 @@
-<div class="td-content td-blog-single">
-	<article class="td-blog-article">
-		<header class="td-blog-article__header">
-			<div class="td-blog-article__meta">
-				<time datetime="{{ $.Date.Format "2006-01-02" }}">{{ $.Date.Format "January 2, 2006" }}</time>
-				{{ with .Params.author }}
-				<span class="td-blog-article__author">{{ . | markdownify }}</span>
-				{{ end }}
+<div class="blog-post-layout">
+	<article class="blog-post">
+		<a class="blog-back" href="{{ .CurrentSection.RelPermalink }}">&larr; All posts</a>
+		<header class="blog-post__header">
+			<h1>{{ .Title }}</h1>
+			{{ with .Params.description }}<p class="blog-post__lead">{{ . | markdownify }}</p>{{ end }}
+			<div class="blog-meta">
+				{{ with .Params.author }}<span class="blog-post__author">{{ . | markdownify }}</span>{{ end }}
+				<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+				<span>{{ .ReadingTime }} min read</span>
 			</div>
-			<h1 class="td-blog-article__title">{{ .Title }}</h1>
-			{{ with .Params.description }}<p class="td-blog-article__lead">{{ . | markdownify }}</p>{{ end }}
-			<div class="td-blog-article__tags">
-				{{ range .GetTerms "tags" -}}
-				<a href="{{ .RelPermalink }}" class="td-blog-article__tag">{{ .LinkTitle }}</a>
-				{{ end -}}
-			</div>
+			{{ with .GetTerms "tags" -}}
+			<ul class="blog-tags">
+				{{ range . }}<li><a class="blog-tag" href="{{ .RelPermalink }}">{{ .Data.Term }}</a></li>{{ end }}
+			</ul>
+			{{ end -}}
 		</header>
-		<div class="td-blog-article__body">
+		<div class="blog-post__body">
 			{{ .Content }}
 		</div>
+		{{ if or .PrevInSection .NextInSection -}}
+		<footer class="blog-post__footer">
+			<nav class="blog-post-nav" aria-label="More posts">
+				{{ with .PrevInSection -}}
+				<a class="blog-post-nav__prev" href="{{ .RelPermalink }}">
+					<span class="blog-post-nav__label">&larr; Older</span>
+					<span class="blog-post-nav__title">{{ .Title }}</span>
+				</a>
+				{{ end -}}
+				{{ with .NextInSection -}}
+				<a class="blog-post-nav__next" href="{{ .RelPermalink }}">
+					<span class="blog-post-nav__label">Newer &rarr;</span>
+					<span class="blog-post-nav__title">{{ .Title }}</span>
+				</a>
+				{{ end -}}
+			</nav>
+		</footer>
+		{{ end -}}
 	</article>
-
-	{{ partial "pager.html" . }}
-	{{ partial "page-meta-lastmod.html" . -}}
+	{{ if and (ne .Params.toc false) (gt (len (findRE `<li>` .TableOfContents)) 1) -}}
+	<aside class="blog-toc d-print-none" aria-label="On this page">
+		<div class="blog-toc__title">On this page</div>
+		{{ .TableOfContents }}
+	</aside>
+	{{ end -}}
 </div>

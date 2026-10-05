@@ -1,43 +1,54 @@
 {{ define "main" }}
+{{ $pages := .Pages -}}
 {{ if (and .Parent .Parent.IsHome) -}}
-  {{ $.Scratch.Set "blog-pages" (where .Site.RegularPages "Section" .Section) -}}
-{{ else -}}
-  {{$.Scratch.Set "blog-pages" .Pages -}}
+  {{ $pages = where .Site.RegularPages "Section" .Section -}}
 {{ end -}}
+{{ $pag := .Paginate $pages 12 -}}
 
-<div class="td-blog-posts td-blog-posts--styled">
-  {{ if .Pages -}}
-    {{ $pag := .Paginate (( $.Scratch.Get "blog-pages").GroupByDate "2006" ) -}}
-    {{ range $pag.PageGroups -}}
-    <div class="td-blog-year-header">{{ T "post_posts_in" }} {{ .Key }}</div>
-    <div class="td-blog-grid">
-      {{ range .Pages -}}
-      <article class="td-blog-card">
-        <a href="{{ .RelPermalink }}" class="td-blog-card__link">
-          <div class="td-blog-card__content">
-            <div class="td-blog-card__meta">
-              <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
-              {{ with .Params.author }}<span class="td-blog-card__author">{{ . }}</span>{{ end }}
-            </div>
-            <h3 class="td-blog-card__title">{{ .Title }}</h3>
-            <p class="td-blog-card__description">{{ .Plain | safeHTML | truncate 180 }}</p>
-            <div class="td-blog-card__tags">
-              {{ range .GetTerms "tags" -}}
-              <span class="td-blog-card__tag">{{ .LinkTitle }}</span>
-              {{ end -}}
-            </div>
-            <span class="td-blog-card__read-more">Read article &rarr;</span>
-          </div>
-        </a>
-      </article>
-      {{ end -}}
+<div class="blog-index">
+  <header class="blog-index__header">
+    <div>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p>{{ . | markdownify }}</p>{{ end }}
     </div>
+    {{ with .OutputFormats.Get "rss" -}}
+    <a class="blog-index__rss" href="{{ .RelPermalink | safeURL }}"><i class="fa-solid fa-rss" aria-hidden="true"></i>RSS feed</a>
     {{ end -}}
-  {{ end }}
-</div>
-<div class="td-blog-posts__pagination">
-  {{ if .Pages -}}
-    {{ template "_internal/pagination.html" . -}}
+  </header>
+
+  <ol class="blog-post-list">
+    {{ range $i, $p := $pag.Pages -}}
+    {{ $featured := and (eq $i 0) (not $pag.HasPrev) -}}
+    <li class="blog-entry{{ if $featured }} blog-entry--featured{{ end }}">
+      <div class="blog-entry__date">
+        {{ if $featured }}<span class="blog-entry__badge">Latest</span>{{ end }}
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+      </div>
+      <div class="blog-entry__body">
+        <h2 class="blog-entry__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p class="blog-entry__excerpt">
+          {{- with .Description }}{{ . | markdownify | plainify | htmlUnescape }}{{ else }}{{ .Summary | plainify | htmlUnescape | truncate 260 }}{{ end -}}
+        </p>
+        <div class="blog-entry__footer">
+          <div class="blog-meta">
+            {{ with .Params.author }}<span>{{ . | markdownify | plainify }}</span>{{ end }}
+            <span>{{ .ReadingTime }} min read</span>
+          </div>
+          {{ with .GetTerms "tags" -}}
+          <ul class="blog-tags">
+            {{ range . }}<li><a class="blog-tag" href="{{ .RelPermalink }}">{{ .Data.Term }}</a></li>{{ end }}
+          </ul>
+          {{ end -}}
+        </div>
+      </div>
+    </li>
+    {{ end -}}
+  </ol>
+
+  {{ if gt $pag.TotalPages 1 -}}
+  <div class="blog-pagination">
+    {{ template "_internal/pagination.html" . }}
+  </div>
   {{ end -}}
 </div>
 {{ end -}}
